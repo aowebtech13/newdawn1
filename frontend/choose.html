@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-in - Choose Method</title>
+    <link rel="stylesheet" href="choose.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-container">
+    <div class="signin-card">
+        
+        <!-- Left Section -->
+        <div class="left-section">
+            <img src="https://res.cloudinary.com/djme9spdc/image/upload/v1785658865/google_PNG19644_qmrkpz.png" alt="Google Logo" class="google-logo">
+            <h1>Welcome</h1>
+            
+            <!-- Account Badge -->
+            <div class="account-pill">
+                <span class="avatar-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"/></svg>
+                </span>
+                <span class="email-text">adesokanadedeji10@gmail.com</span>
+                <span class="arrow-down">▼</span>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <h2>Choose how you want to sign in:</h2>
+
+            <!-- Options Container -->
+            <div class="options-list">
+                
+                <!-- Option 1: Password (Highlighted/Selected style from your image) -->
+                <button class="option-item selected">
+                    <span class="option-icon">
+                        <!-- Lock Icon -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                    </span>
+                    <span class="option-text">Enter your password</span>
+                </button>
+
+                <!-- Option 2: Passkey -->
+                <button class="option-item">
+                    <span class="option-icon">
+                        <!-- Passkey/User Security Icon -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 10v4h-2v-4H9V10h6v2h-2zm-1-5c-.83 0-1.5-.67-1.5-1.5S11.17 4 12 4s1.5.67 1.5 1.5S12.83 7 12 7z"/></svg>
+                    </span>
+                    <span class="option-text">Use your passkey</span>
+                </button>
+
+                <!-- Option 3: Try Another Way -->
+                <button class="option-item">
+                    <span class="option-icon">
+                        <!-- Question Mark/Help Icon -->
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                    </span>
+                    <span class="option-text">Try another way</span>
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Outer Card Bottom Footer -->
+    <div class="card-footer">
+        <div class="language-selector">English (United States) ▼</div>
+        <div class="footer-links">
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

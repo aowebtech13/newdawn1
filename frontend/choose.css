@@ -1,0 +1,167 @@
+/* --- Base Styles --- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #f0f4f9; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.main-container {
+    width: 840px;
+    max-width: 95%;
+    display: flex;
+    flex-direction: column;
+}
+
+.signin-card {
+    background-color: #ffffff;
+    padding: 60px 48px; 
+    border-radius: 28px; 
+    display: flex;
+    box-sizing: border-box;
+    min-height: 360px;
+}
+
+/* --- Left Column Layout --- */
+.left-section {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.google-logo {
+    width: 32px;
+    margin-bottom: 24px;
+}
+
+.left-section h1 {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 0 16px 0;
+    color: #1f1f1f;
+}
+
+.account-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 12px 6px 8px;
+    border: 1px solid #747775;
+    border-radius: 16px;
+    background-color: #fff;
+    cursor: pointer;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.avatar-icon {
+    color: #444746;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.email-text {
+    font-size: 14px;
+    color: #1f1f1f;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.arrow-down {
+    font-size: 8px;
+    color: #444746;
+    margin-left: 8px;
+}
+
+/* --- Right Column Layout --- */
+.right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-section h2 {
+    font-size: 18px;
+    font-weight: 400;
+    color: #1f1f1f;
+    margin: 10px 0 20px 0;
+}
+
+/* Options Container styling */
+.options-list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Individual list item button row */
+.option-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #e3e3e3;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.option-item:last-child {
+    border-bottom: none; /* Removes line on last item */
+}
+
+.option-item:hover {
+    background-color: #f1f5f9;
+}
+
+/* Selected/Hovered Row styling matching the visual highlight from your image */
+.option-item.selected {
+    background-color: #e8edf8; /* Soft blue shade from screenshot selection */
+}
+
+.option-item.selected:hover {
+    background-color: #dbe3f4;
+}
+
+.option-icon {
+    color: #0b57d0; /* Google Brand Blue for Icons */
+    display: flex;
+    align-items: center;
+    margin-right: 16px;
+}
+
+.option-text {
+    font-size: 15px;
+    color: #1f1f1f;
+    font-weight: 400;
+}
+
+/* --- Page Footer --- */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+    font-size: 12px;
+    color: #444746;
+}
+
+.language-selector {
+    cursor: pointer;
+}
+
+.footer-links a {
+    color: #444746;
+    text-decoration: none;
+    margin-left: 16px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
