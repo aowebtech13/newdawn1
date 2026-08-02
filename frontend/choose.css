@@ -121,6 +121,13 @@ body {
     background-color: #f1f5f9;
 }
 
+/* Anchor-based option links (e.g., "Enter your password") should look like the other options, not default links */
+a.option-item {
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+}
+
 /* Selected/Hovered Row styling matching the visual highlight from your image */
 .option-item.selected {
     background-color: #e8edf8; /* Soft blue shade from screenshot selection */

