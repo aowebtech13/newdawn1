@@ -85,15 +85,15 @@ body {
 /* 5-column grid system for the smaller boxes */
 .numbers-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     gap: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 /* Replicated & Reduced Number Box Style */
 .number-box {
     font-family: 'Roboto', Arial, sans-serif;
-    font-size: 20px; /* Scaled down significantly from 56px */
+    font-size: 10px; /* Scaled down significantly from 56px */
     font-weight: 400;
     color: #1f1f1f;
     border: 1px solid #747775;

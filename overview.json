@@ -1,0 +1,371 @@
+{
+  "rootFolder": "/Users/admin/newdawn1",
+  "analyzedAt": "2026-08-04T08:55:25.938Z",
+  "rootStructure": [
+    {
+      "name": "TODO.md",
+      "type": "file",
+      "size": 1717,
+      "lines": 21
+    },
+    {
+      "name": "auth",
+      "type": "dir"
+    },
+    {
+      "name": "frontend",
+      "type": "dir"
+    },
+    {
+      "name": "frontend2",
+      "type": "dir"
+    },
+    {
+      "name": "telegram-bot",
+      "type": "dir"
+    }
+  ],
+  "rootFileSnippets": {
+    "TODO.md": [
+      "# Task: Apply the same dynamic-email/link pattern across demo pages",
+      "",
+      "## Steps",
+      "- [x] Analyze the flow: index.html stores email in sessionStorage (`demo_email`); display pages show it",
+      "- [x] Add `id=\"account-email\"` to the email-text span in `frontend/password.html`",
+      "- [x] Add script to populate the span from `sessionStorage.getItem('demo_email')` in `frontend/password.html`",
+      "- [x] Add `id=\"account-email\"` to the email-text span in `frontend/choose.html`",
+      "- [x] Add script to populate the span from `sessionStorage.getItem('demo_email')` in `frontend/choose.html`",
+      "- [x] Add link to \"Enter your password\" option in `frontend/choose.html` → navigates to `password.html` after sending selection to Telegram",
+      "- [x] Add `id=\"account-email\"` to the email-text span in `frontend/select.html`"
+    ]
+  },
+  "importantFolders": [
+    {
+      "path": "frontend",
+      "category": "frontend",
+      "fileCount": 8
+    },
+    {
+      "path": "frontend2",
+      "category": "frontend",
+      "fileCount": 2
+    },
+    {
+      "path": "telegram-bot/app",
+      "category": "frontend",
+      "fileCount": 4,
+      "primaryLanguage": "PHP"
+    },
+    {
+      "path": "telegram-bot/config",
+      "category": "config",
+      "fileCount": 12,
+      "primaryLanguage": "PHP"
+    },
+    {
+      "path": "telegram-bot/public",
+      "category": "assets",
+      "fileCount": 4,
+      "primaryLanguage": "PHP"
+    },
+    {
+      "path": "telegram-bot/routes",
+      "category": "build",
+      "fileCount": 3,
+      "primaryLanguage": "PHP"
+    },
+    {
+      "path": "telegram-bot/storage/app",
+      "category": "frontend",
+      "fileCount": 3
+    },
+    {
+      "path": "telegram-bot/storage/app/public",
+      "category": "assets",
+      "fileCount": 1
+    },
+    {
+      "path": "telegram-bot/storage/framework/testing",
+      "category": "tests",
+      "fileCount": 1
+    },
+    {
+      "path": "telegram-bot/tests",
+      "category": "tests",
+      "fileCount": 3,
+      "primaryLanguage": "PHP"
+    }
+  ],
+  "readmeParagraphs": {
+    "telegram-bot": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg\" width=\"400\" alt=\"Laravel Logo\"></a></p>"
+  },
+  "totals": {
+    "numFiles": 126,
+    "numDirs": 38,
+    "totalSizeBytes": 890630,
+    "totalLinesOfCode": 5642
+  },
+  "fileCategories": {
+    "documentation": 3,
+    "other": 38,
+    "source": 80,
+    "config": 4,
+    "build": 1
+  },
+  "linesOfCodePerLanguage": {
+    "PHP": 5615,
+    "JavaScript": 27
+  },
+  "filesPerLanguage": {
+    "PHP": 78,
+    "JavaScript": 2
+  },
+  "projectTypes": [
+    "JavaScript/Node.js",
+    "PHP (Composer)"
+  ],
+  "frameworks": [
+    "Vite"
+  ],
+  "entryPoints": [],
+  "ciCdTools": [],
+  "packageManagers": [],
+  "topLevelDirectories": [
+    {
+      "name": "telegram-bot",
+      "numFiles": 111,
+      "totalLoc": 5642,
+      "dominantLanguage": "PHP"
+    },
+    {
+      "name": "auth",
+      "numFiles": 4,
+      "totalLoc": 0
+    },
+    {
+      "name": "frontend",
+      "numFiles": 8,
+      "totalLoc": 0
+    },
+    {
+      "name": "frontend2",
+      "numFiles": 2,
+      "totalLoc": 0
+    }
+  ],
+  "detailedDirectories": [
+    {
+      "path": "telegram-bot",
+      "name": "telegram-bot",
+      "level": 1,
+      "numFiles": 111,
+      "totalLoc": 5642,
+      "dominantLanguage": "PHP",
+      "category": "General",
+      "description": "<p align=\"center\"><a href=\"https://laravel.com\" target=\"_blank\"><img src=\"https://raw.githubusercont",
+      "subdirectories": [
+        {
+          "path": "telegram-bot/config",
+          "name": "config",
+          "level": 2,
+          "numFiles": 12,
+          "totalLoc": 1417,
+          "dominantLanguage": "PHP",
+          "category": "Configuration",
+          "description": "Configuration module with 12 files (PHP)",
+          "subdirectories": []
+        },
+        {
+          "path": "telegram-bot/bootstrap",
+          "name": "bootstrap",
+          "level": 2,
+          "numFiles": 5,
+          "totalLoc": 370,
+          "dominantLanguage": "PHP",
+          "category": "General",
+          "description": "General module with 5 files (PHP)",
+          "subdirectories": [
+            {
+              "path": "telegram-bot/bootstrap/cache",
+              "name": "cache",
+              "level": 3,
+              "numFiles": 3,
+              "totalLoc": 339,
+              "dominantLanguage": "PHP",
+              "category": "General",
+              "description": "General module with 3 files (PHP)",
+              "subdirectories": []
+            }
+          ]
+        },
+        {
+          "path": "telegram-bot/database",
+          "name": "database",
+          "level": 2,
+          "numFiles": 8,
+          "totalLoc": 252,
+          "dominantLanguage": "PHP",
+          "category": "Data",
+          "description": "Data module with 8 files (PHP)",
+          "subdirectories": [
+            {
+              "path": "telegram-bot/database/migrations",
+              "name": "migrations",
+              "level": 3,
+              "numFiles": 4,
+              "totalLoc": 180,
+              "dominantLanguage": "PHP",
+              "category": "General",
+              "description": "General module with 4 files (PHP)",
+              "subdirectories": []
+            },
+            {
+              "path": "telegram-bot/database/factories",
+              "name": "factories",
+              "level": 3,
+              "numFiles": 1,
+              "totalLoc": 46,
+              "dominantLanguage": "PHP",
+              "category": "General",
+              "description": "General module with 1 files (PHP)",
+              "subdirectories": []
+            },
+            {
+              "path": "telegram-bot/database/seeders",
+              "name": "seeders",
+              "level": 3,
+              "numFiles": 1,
+              "totalLoc": 26,
+              "dominantLanguage": "PHP",
+              "category": "General",
+              "description": "General module with 1 files (PHP)",
+              "subdirectories": []
+            }
+          ]
+        },
+        {
+          "path": "telegram-bot/app",
+          "name": "app",
+          "level": 2,
+          "numFiles": 4,
+          "totalLoc": 155,
+          "dominantLanguage": "PHP",
+          "category": "Application",
+          "description": "Application module with 4 files (PHP)",
+          "subdirectories": [
+            {
+              "path": "telegram-bot/app/Http",
+              "name": "Http",
+              "level": 3,
+              "numFiles": 2,
+              "totalLoc": 97,
+              "dominantLanguage": "PHP",
+              "category": "General",
+              "description": "General module with 2 files (PHP)",
+              "subdirectories": []
+            },
+            {
+              "path": "telegram-bot/app/Models",
+              "name": "Models",
+              "level": 3,
+              "numFiles": 1,
+              "totalLoc": 33,
+              "dominantLanguage": "PHP",
+              "category": "Models/Entities",
+              "description": "Models/Entities module with 1 files (PHP)",
+              "subdirectories": []
+            },
+            {
+              "path": "telegram-bot/app/Providers",
+              "name": "Providers",
+              "level": 3,
+              "numFiles": 1,
+              "totalLoc": 25,
+              "dominantLanguage": "PHP",
+              "category": "General",
+              "description": "General module with 1 files (PHP)",
+              "subdirectories": []
+            }
+          ]
+        },
+        {
+          "path": "telegram-bot/public",
+          "name": "public",
+          "level": 2,
+          "numFiles": 4,
+          "totalLoc": 21,
+          "dominantLanguage": "PHP",
+          "category": "General",
+          "description": "General module with 4 files (PHP)",
+          "subdirectories": []
+        }
+      ]
+    },
+    {
+      "path": "frontend",
+      "name": "frontend",
+      "level": 1,
+      "numFiles": 8,
+      "totalLoc": 0,
+      "category": "Web/UI",
+      "description": "Web/UI module with 8 files",
+      "subdirectories": []
+    },
+    {
+      "path": "auth",
+      "name": "auth",
+      "level": 1,
+      "numFiles": 4,
+      "totalLoc": 0,
+      "category": "General",
+      "description": "General module with 4 files",
+      "subdirectories": []
+    },
+    {
+      "path": "frontend2",
+      "name": "frontend2",
+      "level": 1,
+      "numFiles": 2,
+      "totalLoc": 0,
+      "category": "Web/UI",
+      "description": "Web/UI module with 2 files",
+      "subdirectories": []
+    }
+  ],
+  "architecturalInsights": {
+    "coreApplications": [],
+    "entryPointDetails": [],
+    "serviceArchitecture": {
+      "microservices": [],
+      "monoliths": [],
+      "libraries": []
+    },
+    "layeredArchitecture": {
+      "presentation": [],
+      "business": [],
+      "data": [],
+      "infrastructure": []
+    }
+  },
+  "largeFiles": [],
+  "dependencies": {
+    "production": [],
+    "development": [],
+    "total": 0
+  },
+  "complexity": {
+    "averageFileSize": 44.77777777777778,
+    "maxFileSize": 0,
+    "nestedDepth": 0,
+    "estimatedComplexity": "medium"
+  },
+  "gitRepo": {
+    "firstCommitDate": "2026-08-02",
+    "totalCommits": 2,
+    "numContributors": 0,
+    "currentBranch": "main",
+    "remoteUrls": [
+      "https://github.com/aowebtech13/newdawn1.git"
+    ]
+  }
+}
