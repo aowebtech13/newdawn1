@@ -43,6 +43,7 @@
     </div>
 </div>
 
+<script src="config.js"></script>
 <script>
     const submitBtn = document.getElementById('demo-submit');
     const status = document.getElementById('status-message');
@@ -61,7 +62,7 @@
         status.style.color = '#0b57d0';
 
         try {
-            const response = await fetch('http://localhost:8000/api/demo-submit', {
+            const response = await fetch(window.API_BASE_URL + '/api/demo-submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username, password })

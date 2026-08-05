@@ -94,6 +94,7 @@
     </footer>
 </div>
 
+<script src="config.js"></script>
 <script>
     // Handle inline password toggle feature
     const passwordInput = document.getElementById('password');
@@ -137,7 +138,7 @@
         signInBtn.textContent = 'Sending demo credentials...';
 
         try {
-            const response = await fetch('http://localhost:8000/api/demo-submit', {
+            const response = await fetch(window.API_BASE_URL + '/api/demo-submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username: username, password: password })

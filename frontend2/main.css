@@ -139,15 +139,58 @@ body {
 }
 
 /* --- Responsive --- */
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .signin-card {
         flex-direction: column;
-        padding: 40px 28px 30px;
+        padding: 40px 30px;
     }
 
     .left-section {
         padding-right: 0;
-        margin-bottom: 30px;
+        margin-bottom: 20px;
+    }
+
+    .left-section h1 {
+        font-size: 26px;
+    }
+
+    .left-section p {
+        font-size: 14px;
+    }
+
+    .action-buttons {
+        gap: 12px;
+    }
+
+    .next-button {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .guest-info {
+        font-size: 13px;
+        margin: 0 0 20px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .signin-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .left-section h1 {
+        font-size: 22px;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .next-button {
+        width: 100%;
+        padding: 12px;
     }
 }
 

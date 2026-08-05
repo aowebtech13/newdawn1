@@ -306,3 +306,142 @@ h1 {
     color: #666666;
     margin: 0;
 }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .auth-card {
+        padding: 30px 24px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin: 0 0 16px 0;
+    }
+
+    .identity-badge {
+        margin-bottom: 24px;
+    }
+
+    .back-arrow {
+        width: 24px;
+        height: 24px;
+    }
+
+    .username-display {
+        font-size: 16px;
+    }
+
+    .input-container {
+        margin-bottom: 16px;
+    }
+
+    .input-container label {
+        font-size: 14px;
+    }
+
+    .password-wrapper input {
+        height: 44px;
+        padding: 10px 60px 10px 16px;
+        font-size: 15px;
+    }
+
+    .show-hide-btn {
+        font-size: 15px;
+    }
+
+    .checkbox-container {
+        margin-bottom: 24px;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+    }
+
+    .checkbox-container label {
+        font-size: 15px;
+    }
+
+    .btn {
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .links-container {
+        gap: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .action-link {
+        font-size: 14px;
+    }
+
+    .separator-bar {
+        margin: 10px 0 20px 0;
+    }
+
+    .separator-bar span {
+        font-size: 12px;
+    }
+
+    .footer-nav {
+        gap: 12px 16px;
+    }
+
+    .footer-nav a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .identity-badge {
+        margin-bottom: 20px;
+    }
+
+    .back-arrow {
+        width: 22px;
+        height: 22px;
+    }
+
+    .username-display {
+        font-size: 15px;
+    }
+
+    .password-wrapper input {
+        height: 40px;
+        padding: 10px 56px 10px 14px;
+        font-size: 14px;
+    }
+
+    .checkbox-container {
+        margin-bottom: 20px;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .links-container {
+        gap: 12px;
+    }
+
+    .action-link {
+        font-size: 13px;
+    }
+}

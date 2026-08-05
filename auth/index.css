@@ -232,3 +232,89 @@ h1 {
     color: #666666;
     margin: 0;
 }
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .auth-card {
+        padding: 30px 24px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin: 0 0 24px 0;
+    }
+
+    .input-container {
+        margin-bottom: 20px;
+    }
+
+    .input-container label {
+        font-size: 14px;
+    }
+
+    .input-container input {
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .btn {
+        height: 44px;
+        font-size: 15px;
+    }
+
+    .links-container {
+        gap: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .action-link {
+        font-size: 14px;
+    }
+
+    .separator-bar {
+        margin: 10px 0 20px 0;
+    }
+
+    .separator-bar span {
+        font-size: 12px;
+    }
+
+    .footer-nav {
+        gap: 12px 16px;
+    }
+
+    .footer-nav a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+        margin: 0 0 20px 0;
+    }
+
+    .input-container input {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .btn {
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .links-container {
+        gap: 12px;
+    }
+
+    .action-link {
+        font-size: 13px;
+    }
+}
