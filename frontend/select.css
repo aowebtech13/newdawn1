@@ -1,4 +1,13 @@
 /* --- Base Reset & Page Setup --- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .main-container {
@@ -168,11 +178,12 @@ body {
     .signin-card {
         flex-direction: column;
         padding: 40px 30px;
+        width: 100%;
     }
 
     .left-section {
         padding-right: 0;
-        margin-bottom: 20px;
+        margin-bottom: 24px;
     }
 
     .left-section h1 {
@@ -183,6 +194,10 @@ body {
         font-size: 14px;
     }
 
+    .account-pill {
+        max-width: 100%;
+    }
+
     /* Reduce grid columns from 8 to 5 on tablet */
     .numbers-grid {
         grid-template-columns: repeat(5, 1fr);
@@ -191,7 +206,8 @@ body {
 
     .number-box {
         font-size: 12px;
-        padding: 10px 0;
+        padding: 12px 0;
+        min-height: 40px;
     }
 
     .action-buttons {
@@ -200,6 +216,7 @@ body {
 
     .link {
         font-size: 13px;
+        padding: 8px 0;
     }
 
     .card-footer {
@@ -222,6 +239,10 @@ body {
         font-size: 24px;
     }
 
+    .google-logo {
+        width: 28px;
+    }
+
     /* Reduce grid columns to 4 on mobile */
     .numbers-grid {
         grid-template-columns: repeat(4, 1fr);
@@ -229,11 +250,36 @@ body {
     }
 
     .number-box {
-        font-size: 10px;
-        padding: 8px 0;
+        font-size: 11px;
+        padding: 10px 0;
+        min-height: 40px;
     }
 
     .action-buttons {
         align-items: center;
+    }
+}
+
+@media (max-width: 360px) {
+    .signin-card {
+        padding: 24px 16px;
+    }
+
+    .left-section h1 {
+        font-size: 20px;
+    }
+
+    .left-section .subtitle {
+        font-size: 13px;
+    }
+
+    /* Reduce grid columns to 3 on very small phones */
+    .numbers-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+    }
+
+    .number-box {
+        min-height: 40px;
     }
 }

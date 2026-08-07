@@ -1,4 +1,13 @@
 /* --- Base Styles --- */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* --- Container and Card --- */
@@ -142,6 +152,7 @@ body {
     .signin-card {
         flex-direction: column;
         padding: 40px 30px;
+        width: 100%;
     }
 
     .left-section {
@@ -164,10 +175,12 @@ body {
     .next-button {
         padding: 10px 20px;
         font-size: 13px;
+        min-height: 44px;
     }
 
     .create-account {
         font-size: 13px;
+        padding: 8px 0;
     }
 
     .guest-info {
@@ -186,13 +199,39 @@ body {
         font-size: 22px;
     }
 
+    .google-logo {
+        width: 80px;
+    }
+
     .action-buttons {
         flex-direction: column-reverse;
         gap: 10px;
+        width: 100%;
+    }
+
+    .create-account {
+        align-self: flex-start;
+        padding: 6px 0;
     }
 
     .next-button {
         width: 100%;
-        padding: 12px;
+        padding: 14px;
+        min-height: 48px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 360px) {
+    .signin-card {
+        padding: 24px 16px;
+    }
+
+    .left-section h1 {
+        font-size: 20px;
+    }
+
+    .left-section p {
+        font-size: 13px;
     }
 }

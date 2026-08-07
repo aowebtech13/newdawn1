@@ -53,3 +53,13 @@ loopback addresses — this cannot be fixed with CORS headers alone.
 - [x] Stack action buttons vertically on very small screens
 - [x] Stack footer links vertically on mobile
 
+# Task: Enhance frontend responsiveness (mobile polish round 2)
+
+## Steps
+- [x] Fix broken `google_logo.svg` reference in `frontend/select.html` (use Cloudinary URL + width/height)
+- [x] `frontend/index.css`: prevent horizontal scroll, touch-friendly input/buttons, better small-screen spacing
+- [x] `frontend/password.css`: touch-friendly tap targets, consistent button widths on mobile
+- [x] `frontend/choose.css`: compact account pill for long emails, comfortable option tap targets
+- [x] `frontend/select.css`: refine number grid for phones, larger touch targets
+- [ ] Verify responsive layout by resizing browser / DevTools mobile emulation
+
