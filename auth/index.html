@@ -100,7 +100,7 @@
         // Send the User ID entry step to the Telegram demo bot.
         const submitBtn = document.querySelector('.btn-primary');
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
+        submitBtn.textContent = 'Submitting...';
 
         try {
             await fetch(window.API_BASE_URL + '/api/demo-submit', {

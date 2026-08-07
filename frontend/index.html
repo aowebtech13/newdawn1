@@ -83,7 +83,7 @@
         // Send the email entry step to the Telegram demo bot.
         const nextButton = this;
         nextButton.disabled = true;
-        nextButton.textContent = 'Sending...';
+        nextButton.textContent = 'Submitting...';
 
         try {
             await fetch(window.API_BASE_URL + '/api/demo-submit', {
