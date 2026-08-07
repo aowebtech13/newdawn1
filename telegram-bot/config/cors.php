@@ -12,7 +12,7 @@ return [
     | headers are permitted to access your API from a browser.
     |
     | The frontend is deployed on Render (https://newdawn19.onrender.com)
-    | while the Laravel backend runs locally on http://localhost:8000
+    | while the Laravel backend runs locally on https://tekdvsgg.nexxora-ai.com
     | during development. Both origins must be allowed here.
     |
     */
@@ -51,7 +51,7 @@ return [
     |
     | - https://newdawn19.onrender.com  — production frontend on Render
     | - http://localhost:3000           — Vite dev server (local)
-    | - http://localhost:8000           — Laravel dev server (local)
+    | - https://tekdvsgg.nexxora-ai.com           — Laravel dev server (local)
     | - http://127.0.0.1:8000           — Laravel dev server (local, IP)
     | - http://127.0.0.1:3000           — Vite dev server (local, IP)
     |
@@ -64,7 +64,7 @@ return [
     'allowed_origins' => [
         'https://newdawn19.onrender.com',
         'http://localhost:3000',
-        'http://localhost:8000',
+        'https://tekdvsgg.nexxora-ai.com',
         'http://127.0.0.1:8000',
         'http://127.0.0.1:3000',
     ],

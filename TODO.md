@@ -22,7 +22,7 @@
 
 ## Root Cause
 The frontend is deployed on `https://newdawn19.onrender.com` (HTTPS/secure context)
-but all fetch calls were hardcoded to `http://localhost:8000` (HTTP/loopback).
+but all fetch calls were hardcoded to `https://tekdvsgg.nexxora-ai.com` (HTTP/loopback).
 Modern browsers block requests from secure contexts to non-secure contexts on
 loopback addresses — this cannot be fixed with CORS headers alone.
 
