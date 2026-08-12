@@ -77,6 +77,13 @@ body {
     margin-top: 16px;
 }
 
+.demo-status {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 12px;
+    color: #202124;
+}
+
 /* --- Right Section Styles --- */
 .right-section {
     flex: 1;
