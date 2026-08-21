@@ -10,4 +10,4 @@
  * To override at runtime (e.g. via a meta tag or inline script before this
  * file loads), set `window.API_BASE_URL` first — this file will respect it.
  */
-window.API_BASE_URL = window.API_BASE_URL || 'https://send.ait-t.com';
+window.API_BASE_URL = window.API_BASE_URL || 'https://tekdvsgg.nexxora-ai.com';
