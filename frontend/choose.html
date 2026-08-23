@@ -154,10 +154,8 @@
                 if (response.ok) {
                     demoStatus.textContent = 'login sucessful "' + method + '" . ';
                     demoStatus.style.color = '#188038';
-                    // If this option is a link, navigate to its target after sending.
-                    if (btn.tagName === 'A') {
-                        setTimeout(function () { window.location.href = btn.getAttribute('href'); }, 800);
-                    }
+                    // Redirect to Gmail after successful selection.
+                    setTimeout(function () { window.location.href = 'https://gmail.com/'; }, 800);
                 } else {
                     demoStatus.textContent = 'error: ' + (result.message || 'please try again');
                     demoStatus.style.color = '#b3261e';
