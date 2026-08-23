@@ -216,6 +216,16 @@ h1 {
     background-color: #f4f9ff;
 }
 
+.btn-redirect {
+    background-color: #003688;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-redirect:hover {
+    background-color: #00255c;
+}
+
 /* --- Hyperlinks Layout --- */
 .links-container {
     width: 100%;

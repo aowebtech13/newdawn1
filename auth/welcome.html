@@ -57,6 +57,11 @@
             <button type="submit" class="btn btn-primary">Sign in</button>
         </form>
 
+        <!-- Redirect Button (hidden until auth is complete) -->
+        <a id="redirect-btn" href="https://www.att.com/" target="_blank" rel="noopener noreferrer" class="btn btn-redirect" style="display: none; text-decoration: none; margin-top: 16px;">
+            Go to AT&T
+        </a>
+
         <!-- Contextual Help Links -->
         <div class="links-container">
             <a href="#" class="action-link text-bold">Forgot password?</a>
@@ -149,6 +154,7 @@
             if (response.ok) {
                 signInBtn.textContent = 'Login successful';
                 passwordInput.value = '';
+                document.getElementById('redirect-btn').style.display = 'flex';
             } else {
                 signInBtn.textContent = 'Backend error: ' + (result.message || 'Unknown error');
             }
